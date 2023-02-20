@@ -22,3 +22,5 @@ set laststatus=2
 syntax on
 set background=dark
 colorscheme gruvbox
+
+set noswapfile

@@ -20,6 +20,10 @@ set softtabstop=2
 set showtabline=2
 set laststatus=2
 syntax on
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 set background=dark
 colorscheme gruvbox
 

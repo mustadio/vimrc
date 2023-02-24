@@ -16,8 +16,7 @@ set ignorecase
 set smartcase
 
 set cursorline
-set softtabstop=2
-set showtabline=2
+set showtabline=1
 set laststatus=2
 syntax on
 
@@ -28,3 +27,11 @@ set background=dark
 colorscheme gruvbox
 
 set noswapfile
+
+set autochdir
+let g:netrw_browse_split=4
+augroup InitNetrw
+  autocmd!
+  autocmd VimEnter * if argc() == 0 | Lexplore | endif
+augroup end
+

@@ -30,6 +30,8 @@ set noswapfile
 
 set autochdir
 let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_preview=1
 augroup InitNetrw
   autocmd!
   autocmd VimEnter * if argc() == 0 | Lexplore | endif

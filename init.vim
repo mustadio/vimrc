@@ -37,3 +37,24 @@ augroup InitNetrw
   autocmd VimEnter * if argc() == 0 | Lexplore | endif
 augroup end
 
+" 插入移动
+inoremap <c-e> <end>
+inoremap <c-a> <c-o>^
+inoremap <c-d> <del>
+inoremap <c-f> <c-o>W
+inoremap <expr><c-b> <sid>CtrlB()
+func! s:CtrlB()
+	if pumvisible()|return "\<c-n>"
+	elseif getline('.')[col('.')-2]==nr2char(9)
+		let s:pos=col('.')|let s:result=""
+		while s:pos!=0|let s:result=s:result."\<bs>"|let s:pos-=1|endwhile
+		let s:result=s:result."\<c-n>"
+		return s:result
+	else
+		return "\<c-[>Bi"
+	endif
+endfunc
+" 插入模式删除
+inoremap <c-q> <c-o>dd
+snoremap <c-q> <c-o>dd
+
